@@ -1,0 +1,83 @@
+/* all*/
+*{
+	padding: 0px;
+	margin: 0px;
+}
+a{
+	color: black;
+	text-decoration: none;
+}
+#title-hrLeft{
+	height: 35px;
+	width: 45%;
+	float: left;
+	padding-top: 35px;
+}
+#title-hrRight{
+	height: 35px;
+	width: 45%;
+	float: right;
+	padding-top: 35px;
+}
+#title-font{
+	color: #757575;
+	height: 70px;
+	width: 9%;
+	float: left;
+	padding-top: 0;
+	text-align: center;
+}
+#form{
+	height: 600px;
+	width: 800px;
+	margin: auto;
+}
+#user{
+	width: 80%;
+	height: 800px;
+	padding-left: 10%;
+}
+#register-button{
+	margin: auto;
+	padding-top: 20px;
+	padding-left: 270px;
+	color: #757575;
+	align-content: center;
+}
+#goToLogin{
+	color: #757575;
+	float: right;
+	font-size: 12px;
+}
+.crud{
+	float: left;
+	padding-left: 140px;
+}
+#root{
+	padding-top: 10px;
+	color: #757575;
+}
+#crud{
+	padding-top: 50px;
+}
+#main{
+}
+#topNevigation-mosaic-loginStatus{
+	float: right;
+	padding-right:100px ;
+	padding-top:5px ;
+	color: #757575;
+}
+#tableBorder{
+	width: 1150px;
+	height: 500px;
+	margin-left: 100px;
+	margin-top: 30px;
+}
+#personalCentre{
+	color: #757575;
+	height: 100px;
+	float: right;
+	padding-right: 180px;
+	padding-top: 30px;
+}

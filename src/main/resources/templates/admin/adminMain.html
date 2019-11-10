@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/mdui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/head.css"/>
+    <title>菜单</title>
+    <link rel="stylesheet" type="text/css" href="../css/LoginAndRegister.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/adminMain.css"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/adminMain.js"></script>
+</head>
+<body>
+<div id="main">
+    <div id="topNevigation">
+        <div id="topNevigation-title">学生教务系统</div>
+    </div>
+    <div id="menu">
+        <a href="addStu">
+            <div class="info-btn" id="menu1">
+                <p class="info-btn-p">开卡</p>
+            </div>
+        </a>
+        <div class="info-btn" id="menu2">
+            <p class="info-btn-p">注销卡</p>
+        </div>
+    </div>
+    <div id="tableBorder" class="mdui-table-fluid">
+        <table class="mdui-table" >
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>班级</th>
+                <th>籍贯</th>
+            </tr>
+            <c:forEach items="${studentList}" var="student" >
+                <tr>
+                    <td>${student.snum }</td>
+                    <td>${student.name }</td>
+                    <td>${student.age }</td>
+                    <td>${student.clazz }</td>
+                    <td>${student.nativePlace }</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+</div>
+</body>
+</html>
