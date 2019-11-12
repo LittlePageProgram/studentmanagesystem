@@ -1,11 +1,14 @@
-package com.electricpower.studentmanagesystem.controller;
+package com.electricpower.studentmanagesystem.controller.card;
 
 import com.electricpower.studentmanagesystem.pojo.Student;
 import com.electricpower.studentmanagesystem.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
 
 /**
  * 管理员服务
@@ -22,7 +25,9 @@ public class Admin {
      * @return
      */
     @RequestMapping("menu")
-    public String menu(){
+    public String menu(ModelMap modelMap){
+        ArrayList<Student> stu = studentService.getAll();
+        modelMap.put("stuinfo",stu);
         return "admin/adminMain";
     }
 
@@ -44,9 +49,30 @@ public class Admin {
     public String addStuProcessor(Student student){
         //check的1为已核实
         student.setPasswd(student.getStuNum()).setCheck(1);
-        System.out.println(student);
         studentService.addStudent(student);
         return "admin/stuManager/addStuSuccess";
+    }
+
+    /**
+     * 注销学生页面
+     * @return
+     */
+    @RequestMapping("removeStu")
+    public String removeStu(){
+        return "admin/stuManager/removeStu";
+    }
+
+    /**
+     * 注销学生处理
+     * @return
+     */
+    @RequestMapping("removeStuProcessor")
+    public String removeStuProcess(String stuNum){
+        if(studentService.removeStu(stuNum)){
+            return "admin/stuManager/removeStuSuccess";
+        }else {
+            return "admin/stuManager/removeStuFailed";
+        }
     }
 
     /**

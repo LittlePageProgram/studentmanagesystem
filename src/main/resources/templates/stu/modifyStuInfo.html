@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/mdui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/head.css"/>
+    <title>修改信息</title>
+    <link rel="stylesheet" type="text/css" href="../css/LoginAndRegister.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/adminMain.css"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/adminMain.js"></script>
+    <style>
+        #container{
+            padding-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="registerFont">
+        <div class="mdui-bottom-nav" id="root">
+            <h1>修改信息</h1>
+        </div>
+    </div>
+    <div id="form">
+        <form action="/stu/modifyProcess" method="post">
+            <div class="mdui-textfield" id="user">
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">地址</label>
+                    <input class="mdui-textfield-input" type="text" id="nativePlace" name="address"/>
+                    <label class="mdui-textfield-label"></label>
+                </div>
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">电话</label>
+                    <input class="mdui-textfield-input" type="text" id="nativePlace" name="phone"/>
+                    <label class="mdui-textfield-label"></label>
+                </div>
+                <div id="register-button">
+                    <button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-theme-accent mdui-ripple" id="registerbutton-button"  onclick="return login();">
+                        修改
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

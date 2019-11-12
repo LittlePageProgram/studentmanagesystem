@@ -12,43 +12,61 @@
 <body>
 <div id="main">
     <div id="topNevigation">
-        <div id="topNevigation-title">学生教务系统</div>
+        <div id="topNevigation-title">个人信息</div>
     </div>
-    <div id="menu">
-        <a href="addStu">
+    <div id="menu" th:hidden="${stu.check}==0">
+        <a href="/stu/modifyInfo" >
             <div class="info-btn" id="menu1">
-                <p class="info-btn-p">开卡</p>
+                <p class="info-btn-p">信息修改</p>
             </div>
         </a>
-        <a href="removeStu">
+        <a href="/stu/topUp">
             <div class="info-btn" id="menu2">
-                <p class="info-btn-p">注销卡</p>
+                <p class="info-btn-p">充值</p>
             </div>
         </a>
     </div>
     <div id="tableBorder" class="mdui-table-fluid">
         <table class="mdui-table" >
             <tr>
-                <th>学号</th>
-                <th>姓名</th>
-                <th>年龄</th>
-                <th>生日</th>
-                <th>身份证号</th>
-                <th>地址</th>
-                <th>电话</th>
-                <th>班级</th>
-                <th>是否注销</th>
-            </tr>
-            <tr th:each="stu : ${stuinfo}">
+                <td>学号</td>
                 <td th:text="${stu.stuNum}"></td>
+            </tr>
+            <tr>
+                <td>姓名</td>
                 <td th:text="${stu.sname}"></td>
+            </tr>
+            <tr>
+                <td>年龄</td>
                 <td th:text="${stu.sage}"></td>
+            </tr>
+            <tr>
+                <th>生日</th>
                 <td th:text="${stu.birthdate}"></td>
+            </tr>
+            <tr>
+                <th>身份证</th>
                 <td th:text="${stu.identifyNum}"></td>
+            </tr>
+            <tr>
+                <th>地址</th>
                 <td th:text="${stu.address}"></td>
+            </tr>
+            <tr>
+                <th>电话</th>
                 <td th:text="${stu.phone}"></td>
+            </tr>
+            <tr>
+                <th>班级</th>
                 <td th:text="${stu.clazz}"></td>
+            </tr>
+            <tr>
+                <td>状态</td>
                 <td th:text="${stu.check}==0?'注销':'在校'"></td>
+            </tr>
+            <tr>
+                <td>余额</td>
+                <td th:text="${stu.balance}"></td>
             </tr>
         </table>
     </div>

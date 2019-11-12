@@ -14,7 +14,7 @@ public class Student {
     private int sid;
     private String stuNum;
     private String sname;
-    private int sage;
+    private String sage;
     private String birthdate;
     private String identifyNum;
     private String address;
@@ -22,4 +22,6 @@ public class Student {
     private String clazz;
     private String passwd;
     private int check;
+    private double balance;
+    private int roomId;
 }
