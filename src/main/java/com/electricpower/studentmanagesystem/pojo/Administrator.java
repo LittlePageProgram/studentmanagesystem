@@ -1,9 +1,6 @@
 package com.electricpower.studentmanagesystem.pojo;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
 import lombok.Data;
-import lombok.ToString;
 import lombok.experimental.Accessors;
 
 /**

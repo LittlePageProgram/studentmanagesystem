@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/mdui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/head.css"/>
+    <title>菜单</title>
+    <link rel="stylesheet" type="text/css" href="../css/LoginAndRegister.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/adminMain.css"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/adminMain.js"></script>
+</head>
+<body>
+<div id="main">
+    <div id="topNevigation">
+        <div id="topNevigation-title">宿舍管理后台</div>
+    </div>
+    <div id="tableBorder" class="mdui-table-fluid">
+        <table class="mdui-table">
+            <tr>
+                <td>学号</td>
+                <td>退宿&分配</td>
+                <td>接受</td>
+                <td>拒绝</td>
+            </tr>
+            <tr th:each="applyRoom : ${applyRooms}">
+                <td th:text="${applyRoom.stuNum}"}>学号</td>
+                <td th:text="${applyRoom.fun}==0?'分配':'退宿'"></td>
+                <td>
+                    <a th:href="'roomAccept?stuNum='+${applyRoom.stuNum}+'&fun='+${applyRoom.fun}">click</a>
+                </td>
+                <td>
+                    <a th:href="'roomCancel?stuNum='+${applyRoom.stuNum}">click</a>
+                </td>
+            </tr>
+<!--                <td th:text="${stu.check}==0?'注销':'在校'"></td>-->
+<!--            </tr>-->
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -75,4 +75,19 @@ public class Stu {
         studentService.topUpProcess(student,money);
         return  "stu/topUpSuccess";
     }
+
+    /**
+     * 宿舍申请
+     * @return
+     */
+    @RequestMapping("apply")
+    public String apply(HttpServletRequest httpServletRequest){
+        Student student = (Student) httpServletRequest.getSession().getAttribute("stuInfo");
+        boolean isApply = studentService.applyRoom(student.getStuNum());
+        if(isApply){
+            return "stu/applySuccess";
+        }else {
+            return "stu/applying";
+        }
+    }
 }

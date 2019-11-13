@@ -23,3 +23,16 @@ $(document).ready(function(){
         $('#menu2').css('background-color','white');
     });
 });
+
+$(document).ready(function(){
+    $('#menu3').mouseover(function(){
+        $('#menu3').css('color','white');
+        $('#menu3').css('border','white');
+        $('#menu3').css('background-color','grey');
+    });
+    $('#menu3').mouseleave(function(){
+        $('#menu3').css('color','#757575');
+        $('#menu3').css('border','1px solid #757575');
+        $('#menu3').css('background-color','white');
+    });
+});
