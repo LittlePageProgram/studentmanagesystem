@@ -90,4 +90,15 @@ public class Stu {
             return "stu/applying";
         }
     }
+
+    @RequestMapping("remove")
+    public String remove(HttpServletRequest httpServletRequest){
+        Student student = (Student) httpServletRequest.getSession().getAttribute("stuInfo");
+        boolean remove = studentService.remove(student.getStuNum());
+        if(remove){
+            return "stu/applySuccess";
+        }else {
+            return "stu/applying";
+        }
+    }
 }

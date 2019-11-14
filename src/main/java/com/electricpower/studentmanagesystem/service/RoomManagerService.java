@@ -4,6 +4,7 @@ import com.electricpower.studentmanagesystem.controller.card.RoomManager;
 import com.electricpower.studentmanagesystem.dao.ApplyRoomDao;
 import com.electricpower.studentmanagesystem.dao.RoomDao;
 import com.electricpower.studentmanagesystem.dao.RoomManagerDao;
+import com.electricpower.studentmanagesystem.dao.StudentDao;
 import com.electricpower.studentmanagesystem.pojo.ApplyRoom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,9 @@ public class RoomManagerService {
 
     @Autowired
     RoomDao roomDao;
+
+    @Autowired
+    StudentDao studentDao;
 
     /**
      * 获取所有房间
@@ -47,5 +51,16 @@ public class RoomManagerService {
     public void addRoomProcessor(String stuNum, String buildingNum, String roomNum) {
         roomManagerDao.removeBystuNum(stuNum);
         roomDao.addRoomInfo(stuNum,buildingNum,roomNum);
+        studentDao.updateRoomStatus( stuNum);
+    }
+
+    /**
+     * 移除房间
+     * @param stuNum
+     */
+    public void removeRoom(String stuNum) {
+        roomManagerDao.removeBystuNum(stuNum);
+        roomDao.removeRoom(stuNum);
+        studentDao.updateRoomStatusNon(stuNum);
     }
 }

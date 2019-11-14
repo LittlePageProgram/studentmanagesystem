@@ -62,4 +62,13 @@ public class StudentService {
             return true;
         }
     }
+
+    public boolean remove(String stuNum) {
+        if(applyRoomDao.getApplyRoombyStuNum(stuNum)!=null){
+            return false;
+        }else {
+            applyRoomDao.addRemove(stuNum);
+            return true;
+        }
+    }
 }

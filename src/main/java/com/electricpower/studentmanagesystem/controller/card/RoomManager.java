@@ -2,6 +2,7 @@ package com.electricpower.studentmanagesystem.controller.card;
 
 import com.electricpower.studentmanagesystem.pojo.ApplyRoom;
 import com.electricpower.studentmanagesystem.service.RoomManagerService;
+import com.electricpower.studentmanagesystem.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -53,19 +54,22 @@ public class RoomManager {
             return "admin/roomManager/addRoomInfo";
         }else{
             //删除stuNum
-            return "删除成功";
+            roomManagerService.removeRoom(stuNum);
+            return "admin/roomManager/deleteSuccess";
         }
     }
 
+    /**
+     * 增加房间处理
+     * @param buildingNum
+     * @param roomNum
+     * @param httpServletRequest
+     * @return
+     */
     @RequestMapping("addRoomProcessor")
     @ResponseBody
     public String addRoomProcessor(String buildingNum,String roomNum, HttpServletRequest httpServletRequest){
         String stuNum = httpServletRequest.getSession().getAttribute("addRoomStuNum").toString();
-
-        System.out.println(stuNum);
-        System.out.println(buildingNum);
-        System.out.println(roomNum);
-
         roomManagerService.addRoomProcessor(stuNum,buildingNum,roomNum);
         return "";
     }

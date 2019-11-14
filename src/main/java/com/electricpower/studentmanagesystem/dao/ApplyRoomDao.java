@@ -35,4 +35,12 @@ public class ApplyRoomDao {
         DBUtils.releaseStatement(stmt);
         DBUtils.releaseConnection(conn);
     }
+
+    public void addRemove(String stuNum) {
+        Connection conn = DBUtils.getConnection();
+        Statement stmt = DBUtils.getStatement(conn);
+        DBUtils.execute(stmt, "insert applyRoom values(null,'"+stuNum+"',1)");
+        DBUtils.releaseStatement(stmt);
+        DBUtils.releaseConnection(conn);
+    }
 }

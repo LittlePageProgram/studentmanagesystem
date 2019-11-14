@@ -25,9 +25,9 @@
                 <p class="info-btn-p">充值</p>
             </div>
         </a>
-        <a href="/stu/apply">
+        <a th:href="${stu.roomId}==0?'/stu/apply':'/stu/remove'">
             <div class="info-btn" id="menu3">
-                <p class="info-btn-p">宿舍申请</p>
+                <p class="info-btn-p"  th:text="${stu.roomId}==0?'宿舍申请':'退宿申请'"></p>
             </div>
         </a>
     </div>
@@ -75,7 +75,7 @@
             </tr>
             <tr>
                 <td>住宿信息</td>
-                <td th:text="${stu.roomId}==0?'未住宿':${stu.roomId}"></td>
+                <td th:text="${stu.roomId}==0?'未住宿':'在校住宿'"></td>
             </tr>
         </table>
     </div>

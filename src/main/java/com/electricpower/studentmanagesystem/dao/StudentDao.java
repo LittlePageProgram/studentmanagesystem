@@ -125,4 +125,20 @@ public class StudentDao {
         DBUtils.releaseStatement(stmt);
         DBUtils.releaseConnection(conn);
     }
+
+    public void updateRoomStatus(String stuNum) {
+        Connection conn = DBUtils.getConnection();
+        Statement stmt = DBUtils.getStatement(conn);
+        DBUtils.execute(stmt,"update student set roomId=1 where stuNum='"+stuNum+"'");
+        DBUtils.releaseStatement(stmt);
+        DBUtils.releaseConnection(conn);
+    }
+
+    public void updateRoomStatusNon(String stuNum) {
+        Connection conn = DBUtils.getConnection();
+        Statement stmt = DBUtils.getStatement(conn);
+        DBUtils.execute(stmt,"update student set roomId=0 where stuNum='"+stuNum+"'");
+        DBUtils.releaseStatement(stmt);
+        DBUtils.releaseConnection(conn);
+    }
 }
