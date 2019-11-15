@@ -1,5 +1,6 @@
 package com.electricpower.studentmanagesystem.service;
 
+import com.electricpower.studentmanagesystem.controller.card.Stu;
 import com.electricpower.studentmanagesystem.dao.ApplyRoomDao;
 import com.electricpower.studentmanagesystem.dao.StudentDao;
 import com.electricpower.studentmanagesystem.pojo.Student;
@@ -70,5 +71,10 @@ public class StudentService {
             applyRoomDao.addRemove(stuNum);
             return true;
         }
+    }
+
+    public Student search(String stuNum) {
+        Student stu = studentDao.getStuByStuNum(stuNum);
+        return stu;
     }
 }

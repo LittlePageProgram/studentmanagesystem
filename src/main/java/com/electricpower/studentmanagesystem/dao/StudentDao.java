@@ -31,7 +31,8 @@ public class StudentDao {
                 student.getPhone() + "'," +
                 student.getCheck() + ",'" +
                 student.getClazz() + "','" +
-                student.getPasswd() + "',0,0);");
+                student.getPasswd() + "',0,0,'"+
+                student.getAcademic()+"');");
         DBUtils.releaseStatement(stmt);
         DBUtils.releaseConnection(conn);
     }
@@ -54,7 +55,7 @@ public class StudentDao {
                         setBirthdate(rs.getString(5)).setIdentifyNum(rs.getString(6)).
                         setAddress(rs.getString(7)).setPhone(rs.getString(8)).
                         setCheck(rs.getInt(9)).setClazz(rs.getString(10)).
-                        setPasswd(rs.getString(11));
+                        setPasswd(rs.getString(11)).setAcademic(rs.getString("academic"));
                 arr.add(s);
             }
         } catch (SQLException e) {

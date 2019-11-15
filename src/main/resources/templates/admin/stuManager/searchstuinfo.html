@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/mdui.css" />
+    <link rel="stylesheet" type="text/css" href="../css/head.css"/>
+    <title>查询</title>
+    <link rel="stylesheet" type="text/css" href="../css/LoginAndRegister.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/adminMain.css"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/adminMain.js"></script>
+</head>
+<body>
+<div id="main">
+    <div id="topNevigation">
+        <div id="topNevigation-title">查询信息</div>
+    </div>
+    </div>
+    <div id="tableBorder" class="mdui-table-fluid">
+        <table class="mdui-table" >
+            <tr>
+                <td>学号</td>
+                <td th:text="${searchresult.stuNum}"></td>
+            </tr>
+            <tr>
+                <td>姓名</td>
+                <td th:text="${searchresult.sname}"></td>
+            </tr>
+            <tr>
+                <td>年龄</td>
+                <td th:text="${searchresult.sage}"></td>
+            </tr>
+            <tr>
+                <th>生日</th>
+                <td th:text="${searchresult.birthdate}"></td>
+            </tr>
+            <tr>
+                <th>身份证</th>
+                <td th:text="${searchresult.identifyNum}"></td>
+            </tr>
+            <tr>
+                <th>地址</th>
+                <td th:text="${searchresult.address}"></td>
+            </tr>
+            <tr>
+                <th>电话</th>
+                <td th:text="${searchresult.phone}"></td>
+            </tr>
+            <tr>
+                <th>班级</th>
+                <td th:text="${searchresult.clazz}"></td>
+            </tr>
+            <tr>
+                <td>状态</td>
+                <td th:text="${searchresult.check}==0?'注销':'在校'"></td>
+            </tr>
+            <tr>
+                <td>余额</td>
+                <td th:text="${searchresult.balance}"></td>
+            </tr>
+            <tr>
+                <td>住宿信息</td>
+                <td th:text="${searchresult.roomId}==0?'未住宿':'在校住宿'"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -36,3 +36,16 @@ $(document).ready(function(){
         $('#menu3').css('background-color','white');
     });
 });
+
+$(document).ready(function(){
+    $('#menu4').mouseover(function(){
+        $('#menu4').css('color','white');
+        $('#menu4').css('border','white');
+        $('#menu4').css('background-color','grey');
+    });
+    $('#menu4').mouseleave(function(){
+        $('#menu4').css('color','#757575');
+        $('#menu4').css('border','1px solid #757575');
+        $('#menu4').css('background-color','white');
+    });
+});

@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
 /**
@@ -85,4 +86,23 @@ public class Admin {
     }
 
 
+    /**
+     * 查询信息界面
+     *
+     */
+    @RequestMapping("searchStu")
+    public String search(){
+        return "admin/stuManager/inputStuNum";
+    }
+
+    @RequestMapping("searchProcess")
+    public String searchProcess(String stuNum, HttpServletRequest httpServletRequest){
+        Student search = studentService.search(stuNum);
+        if(search!=null) {
+            httpServletRequest.setAttribute("searchresult",search);
+            return "admin/stuManager/searchstuinfo";
+        }else{
+            return "admin/stuManager/searchFailed";
+        }
+    }
 }
