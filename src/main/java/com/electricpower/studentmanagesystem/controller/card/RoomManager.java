@@ -67,10 +67,9 @@ public class RoomManager {
      * @return
      */
     @RequestMapping("addRoomProcessor")
-    @ResponseBody
-    public String addRoomProcessor(String buildingNum,String roomNum, HttpServletRequest httpServletRequest){
+    public String addRoomProcessor(String buildingNum,String roomNum,String enterPassword,HttpServletRequest httpServletRequest){
         String stuNum = httpServletRequest.getSession().getAttribute("addRoomStuNum").toString();
-        roomManagerService.addRoomProcessor(stuNum,buildingNum,roomNum);
-        return "";
+        roomManagerService.addRoomProcessor(stuNum,buildingNum,roomNum,enterPassword);
+        return "admin/roomManager/addSuccess";
     }
 }

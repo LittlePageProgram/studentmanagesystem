@@ -3,6 +3,7 @@ package com.electricpower.studentmanagesystem.service;
 import com.electricpower.studentmanagesystem.controller.card.Stu;
 import com.electricpower.studentmanagesystem.dao.ApplyRoomDao;
 import com.electricpower.studentmanagesystem.dao.StudentDao;
+import com.electricpower.studentmanagesystem.pojo.Room;
 import com.electricpower.studentmanagesystem.pojo.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -92,5 +93,9 @@ public class StudentService {
         }
         studentDao.updateStudentPassword(student.getStuNum(),aft);
         return true;
+    }
+
+    public ArrayList<Room> getRoomInfo(String stuNum) {
+        return  applyRoomDao.getRoomInfo(stuNum);
     }
 }

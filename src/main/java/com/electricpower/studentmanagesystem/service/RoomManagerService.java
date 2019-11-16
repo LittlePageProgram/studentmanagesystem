@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * 宿舍管理服务类
@@ -48,9 +49,13 @@ public class RoomManagerService {
      * @param buildingNum
      * @param roomNum
      */
-    public void addRoomProcessor(String stuNum, String buildingNum, String roomNum) {
+    public void addRoomProcessor( String stuNum, String buildingNum, String roomNum,String password) {
         roomManagerDao.removeBystuNum(stuNum);
-        roomDao.addRoomInfo(stuNum,buildingNum,roomNum);
+        Calendar ca = Calendar.getInstance();
+        int year = ca.get(Calendar.YEAR);
+        int month = ca.get(Calendar.MONTH);
+        int day = ca.get(Calendar.DAY_OF_MONTH);
+        roomDao.addRoomInfo(stuNum,buildingNum,roomNum,year+"-"+month+"-"+day,password);
         studentDao.updateRoomStatus( stuNum);
     }
 

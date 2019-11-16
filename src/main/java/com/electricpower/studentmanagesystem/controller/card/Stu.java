@@ -1,6 +1,7 @@
 package com.electricpower.studentmanagesystem.controller.card;
 
 import com.electricpower.studentmanagesystem.dao.StudentDao;
+import com.electricpower.studentmanagesystem.pojo.Room;
 import com.electricpower.studentmanagesystem.pojo.Student;
 import com.electricpower.studentmanagesystem.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Enumeration;
 
 @Controller
@@ -122,5 +124,16 @@ public class Stu {
             return "stu/modifyFailed";
         }
         return "stu/modifySuccess";
+    }
+
+    @RequestMapping("showRoomInfo")
+    public String showRoomInfo(HttpServletRequest httpServletRequest){
+        Student student = (Student) httpServletRequest.getSession().getAttribute("stuInfo");
+        ArrayList<Room> rooms = studentService.getRoomInfo(student.getStuNum());
+        rooms.forEach((x)->{
+            System.out.println(x);
+        });
+        httpServletRequest.setAttribute("rooms",rooms);
+        return  "stu/showRoomInfo";
     }
 }

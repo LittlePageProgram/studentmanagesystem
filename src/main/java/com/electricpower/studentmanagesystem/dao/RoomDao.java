@@ -17,10 +17,10 @@ public class RoomDao {
      * @param buildingNum
      * @param roomNum
      */
-    public void addRoomInfo(String stuNum, String buildingNum, String roomNum) {
+    public void addRoomInfo(String stuNum, String buildingNum, String roomNum,String enterTime,String password) {
         Connection conn = DBUtils.getConnection();
         Statement stmt = DBUtils.getStatement(conn);
-        DBUtils.execute(stmt,"insert room values(null,'"+buildingNum+"','"+roomNum+"','"+stuNum+"')");
+        DBUtils.execute(stmt,"insert room values(null,'"+buildingNum+"','"+roomNum+"','"+stuNum+"','"+enterTime+"','"+password+"')");
         DBUtils.releaseStatement(stmt);
         DBUtils.releaseConnection(conn);
     }
