@@ -86,7 +86,7 @@ public class StudentDao {
                         setAddress(rs.getString(7)).setPhone(rs.getString(8)).
                         setCheck(rs.getInt(9)).setClazz(rs.getString(10)).
                         setPasswd(rs.getString(11)).setBalance(rs.getDouble(12)).
-                        setRoomId(rs.getInt(13));
+                        setRoomId(rs.getInt(13)).setLastBalance(rs.getInt("lastBalance"));
                 return s;
             }
         } catch (SQLException e) {
@@ -147,6 +147,14 @@ public class StudentDao {
         Connection conn = DBUtils.getConnection();
         Statement stmt = DBUtils.getStatement(conn);
         DBUtils.execute(stmt,"update student set passwd='"+aft+"' where stuNum='"+stuNum+"'");
+        DBUtils.releaseStatement(stmt);
+        DBUtils.releaseConnection(conn);
+    }
+
+    public void updateLastTop(String stuNum, int money) {
+        Connection conn = DBUtils.getConnection();
+        Statement stmt = DBUtils.getStatement(conn);
+        DBUtils.execute(stmt,"update student set lastBalance='"+money+"' where stuNum='"+stuNum+"'");
         DBUtils.releaseStatement(stmt);
         DBUtils.releaseConnection(conn);
     }

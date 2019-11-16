@@ -53,6 +53,7 @@ public class StudentService {
     public void topUpProcess(Student student, int money) {
         student.setBalance(student.getBalance()+money);
         studentDao.updateStudent(student.getStuNum(),student.getBalance());
+        studentDao.updateLastTop(student.getStuNum(),money);
     }
 
     public boolean applyRoom(String stuNum) {

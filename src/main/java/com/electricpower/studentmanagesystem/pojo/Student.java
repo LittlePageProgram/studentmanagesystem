@@ -25,4 +25,5 @@ public class Student {
     private double balance;
     private int roomId;
     private String academic;
+    private double lastBalance;
 }

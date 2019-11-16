@@ -29,6 +29,7 @@ public class Stu {
     @RequestMapping("menu")
     public String menu(ModelMap modelMap, HttpServletRequest httpServletRequest){
         Student stu = (Student) httpServletRequest.getSession().getAttribute("stuInfo");
+        stu=studentService.search(stu.getStuNum());
         modelMap.addAttribute("stu",stu);
         return "stu/stuMain";
     }
