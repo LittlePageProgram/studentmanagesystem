@@ -142,4 +142,12 @@ public class StudentDao {
         DBUtils.releaseStatement(stmt);
         DBUtils.releaseConnection(conn);
     }
+
+    public void updateStudentPassword(String stuNum,String aft) {
+        Connection conn = DBUtils.getConnection();
+        Statement stmt = DBUtils.getStatement(conn);
+        DBUtils.execute(stmt,"update student set passwd='"+aft+"' where stuNum='"+stuNum+"'");
+        DBUtils.releaseStatement(stmt);
+        DBUtils.releaseConnection(conn);
+    }
 }

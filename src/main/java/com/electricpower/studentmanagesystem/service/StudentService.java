@@ -77,4 +77,19 @@ public class StudentService {
         Student stu = studentDao.getStuByStuNum(stuNum);
         return stu;
     }
+
+    /**
+     * 修改密码
+     * @param student
+     * @param bef
+     * @param aft
+     * @return
+     */
+    public boolean changePassword(Student student, String bef, String aft) {
+        if(!student.getPasswd().equals(bef)){
+            return false;
+        }
+        studentDao.updateStudentPassword(student.getStuNum(),aft);
+        return true;
+    }
 }

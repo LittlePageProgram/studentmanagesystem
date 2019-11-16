@@ -101,4 +101,25 @@ public class Stu {
             return "stu/applying";
         }
     }
+
+    /**
+     * 密码修改页面
+     * @return
+     */
+    @RequestMapping("changePassword")
+    public String changePassword(){
+
+        return "stu/inputChangePassword";
+    }
+
+
+    @RequestMapping("changePasswordProcess")
+    public String changePasswordProcess(HttpServletRequest httpServletRequest,String bef,String aft){
+        Student student = (Student) httpServletRequest.getSession().getAttribute("stuInfo");
+        boolean isVali = studentService.changePassword(student, bef, aft);
+        if(!isVali){
+            return "stu/modifyFailed";
+        }
+        return "stu/modifySuccess";
+    }
 }
