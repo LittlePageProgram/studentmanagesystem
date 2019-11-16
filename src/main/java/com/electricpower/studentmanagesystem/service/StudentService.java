@@ -98,4 +98,9 @@ public class StudentService {
     public ArrayList<Room> getRoomInfo(String stuNum) {
         return  applyRoomDao.getRoomInfo(stuNum);
     }
+
+    public boolean valiCard(String cardNum, String password) {
+        String cardPassword = applyRoomDao.getCardPassword(cardNum);
+        return cardPassword.equals(password);
+    }
 }

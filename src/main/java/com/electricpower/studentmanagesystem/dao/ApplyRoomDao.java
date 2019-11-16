@@ -65,4 +65,21 @@ public class ApplyRoomDao {
         DBUtils.releaseConnection(conn);
         return arr;
     }
+
+    public String getCardPassword(String cardNum) {
+        String password="";
+        Connection conn = DBUtils.getConnection();
+        Statement stmt = DBUtils.getStatement(conn);
+        ResultSet rs = DBUtils.executeQuery(stmt, "select * from bankCard where cardNum='" + cardNum + "'");
+        try{
+            while (rs.next()){
+                password = rs.getString("password");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        DBUtils.releaseStatement(stmt);
+        DBUtils.releaseConnection(conn);
+        return password;
+    }
 }

@@ -73,7 +73,11 @@ public class Stu {
      * @return
      */
     @RequestMapping("topUpProcess")
-    public String topUpProcess(int money,HttpServletRequest httpServletRequest){
+    public String topUpProcess(int money,HttpServletRequest httpServletRequest,String cardNum,String password){
+        boolean vali = studentService.valiCard(cardNum, password);
+        if(vali==false){
+            return "stu/topUpFailed";
+        }
         Student student = (Student) httpServletRequest.getSession().getAttribute("stuInfo");
         studentService.topUpProcess(student,money);
         return  "stu/topUpSuccess";
@@ -130,9 +134,6 @@ public class Stu {
     public String showRoomInfo(HttpServletRequest httpServletRequest){
         Student student = (Student) httpServletRequest.getSession().getAttribute("stuInfo");
         ArrayList<Room> rooms = studentService.getRoomInfo(student.getStuNum());
-        rooms.forEach((x)->{
-            System.out.println(x);
-        });
         httpServletRequest.setAttribute("rooms",rooms);
         return  "stu/showRoomInfo";
     }

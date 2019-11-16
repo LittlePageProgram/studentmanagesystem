@@ -32,7 +32,7 @@ public class StudentDao {
                 student.getCheck() + ",'" +
                 student.getClazz() + "','" +
                 student.getPasswd() + "',0,0,'"+
-                student.getAcademic()+"');");
+                student.getAcademic()+"',0);");
         DBUtils.releaseStatement(stmt);
         DBUtils.releaseConnection(conn);
     }
